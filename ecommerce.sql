@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1:3306
--- Generation Time: Jan 23, 2024 at 09:26 PM
--- Server version: 8.0.31
--- PHP Version: 8.0.26
+-- Host: localhost:3306
+-- Generation Time: Jan 31, 2024 at 07:48 PM
+-- Server version: 8.0.30
+-- PHP Version: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -27,18 +27,14 @@ SET time_zone = "+00:00";
 -- Table structure for table `cart`
 --
 
-DROP TABLE IF EXISTS `cart`;
-CREATE TABLE IF NOT EXISTS `cart` (
-  `id` int NOT NULL AUTO_INCREMENT,
+CREATE TABLE `cart` (
+  `id` int NOT NULL,
   `user_id` int DEFAULT NULL,
   `product_id` int DEFAULT NULL,
   `quantity` int DEFAULT NULL,
   `price` decimal(10,2) DEFAULT NULL,
   `total` decimal(10,2) DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`),
-  KEY `product_id` (`product_id`),
-  KEY `user_id` (`user_id`)
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -47,16 +43,14 @@ CREATE TABLE IF NOT EXISTS `cart` (
 -- Table structure for table `orders`
 --
 
-DROP TABLE IF EXISTS `orders`;
-CREATE TABLE IF NOT EXISTS `orders` (
-  `order_id` int NOT NULL AUTO_INCREMENT,
-  `user_id` int DEFAULT NULL,
+CREATE TABLE `orders` (
+  `order_id` int NOT NULL,
+  `item_id` int DEFAULT NULL,
   `order_date` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `amount` decimal(15,2) DEFAULT NULL,
+  `item_price` int NOT NULL,
   `Total` decimal(10,2) DEFAULT NULL,
-  `Status` varchar(100) DEFAULT NULL,
-  PRIMARY KEY (`order_id`),
-  KEY `user_id` (`user_id`)
+  `Method` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -65,27 +59,25 @@ CREATE TABLE IF NOT EXISTS `orders` (
 -- Table structure for table `products`
 --
 
-DROP TABLE IF EXISTS `products`;
-CREATE TABLE IF NOT EXISTS `products` (
-  `idp` int NOT NULL AUTO_INCREMENT,
+CREATE TABLE `products` (
+  `idp` int NOT NULL,
   `pname` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `price` decimal(10,2) DEFAULT NULL,
   `quantity` int DEFAULT NULL,
   `pictures` varchar(555) DEFAULT NULL,
-  `descriptions` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  PRIMARY KEY (`idp`)
-) ENGINE=MyISAM AUTO_INCREMENT=41 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `descriptions` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `products`
 --
 
 INSERT INTO `products` (`idp`, `pname`, `price`, `quantity`, `pictures`, `descriptions`) VALUES
-(34, 'iphone 13', '999.00', 900, 'ihpone1.jpg', 'white glass 200ssd 2T'),
-(37, 'iphone12', '769.00', 34, 'ihpone1.jpg', '280GO white crystal'),
-(38, 'iphone12', '769.00', 34, 'laptop1.jpg', '280GO white crystal'),
-(39, 'iphone12', '769.00', 34, 'ihpone1.jpg', '280GO white crystal'),
-(40, 'iphone12', '769.00', 34, 'laptop1.jpg', '280GO white crystal');
+(43, 'shirt', 12.00, 45, 'f3.jpg', 'perfectly well made shirt'),
+(44, 'airpods', 56.00, 566, 'airpods2.jpg', 'White Airpods '),
+(41, 'MacBook', 400.00, 34, 'laptop1.jpg', 'Intel I7 512SSD 12Ram grey colored '),
+(39, 'iphone12', 769.00, 34, 'ihpone1.jpg', '280GO white crystal'),
+(45, 'black shirt', 23.00, 45, 'n8.jpg', 'black tissue made by a individual unknow');
 
 -- --------------------------------------------------------
 
@@ -93,22 +85,22 @@ INSERT INTO `products` (`idp`, `pname`, `price`, `quantity`, `pictures`, `descri
 -- Table structure for table `users`
 --
 
-DROP TABLE IF EXISTS `users`;
-CREATE TABLE IF NOT EXISTS `users` (
-  `id` int NOT NULL AUTO_INCREMENT,
+CREATE TABLE `users` (
+  `id` int NOT NULL,
   `firstname` varchar(100) DEFAULT NULL,
   `lastname` varchar(100) DEFAULT NULL,
   `username` varchar(100) DEFAULT NULL,
   `passwords` varchar(100) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `roles` varchar(255) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `firstname`, `lastname`, `username`, `passwords`) VALUES
-(1, 'cedrick', 'vladimir', 'litced', '123');
+INSERT INTO `users` (`id`, `firstname`, `lastname`, `username`, `passwords`, `roles`) VALUES
+(1, 'cedrick', 'vladimir', 'litced', '123', 'admin'),
+(2, 'test', 'test2', 'ghost', '123', 'customer');
 
 -- --------------------------------------------------------
 
@@ -116,15 +108,84 @@ INSERT INTO `users` (`id`, `firstname`, `lastname`, `username`, `passwords`) VAL
 -- Table structure for table `workers`
 --
 
-DROP TABLE IF EXISTS `workers`;
-CREATE TABLE IF NOT EXISTS `workers` (
-  `id` int NOT NULL AUTO_INCREMENT,
+CREATE TABLE `workers` (
+  `id` int NOT NULL,
   `firstname` varchar(100) DEFAULT NULL,
   `lastname` varchar(100) DEFAULT NULL,
   `username` varchar(100) DEFAULT NULL,
-  `roles` varchar(100) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `roles` varchar(100) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `cart`
+--
+ALTER TABLE `cart`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `product_id` (`product_id`),
+  ADD KEY `user_id` (`user_id`);
+
+--
+-- Indexes for table `orders`
+--
+ALTER TABLE `orders`
+  ADD PRIMARY KEY (`order_id`),
+  ADD KEY `user_id` (`item_id`);
+
+--
+-- Indexes for table `products`
+--
+ALTER TABLE `products`
+  ADD PRIMARY KEY (`idp`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `workers`
+--
+ALTER TABLE `workers`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `cart`
+--
+ALTER TABLE `cart`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `orders`
+--
+ALTER TABLE `orders`
+  MODIFY `order_id` int NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `products`
+--
+ALTER TABLE `products`
+  MODIFY `idp` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `workers`
+--
+ALTER TABLE `workers`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

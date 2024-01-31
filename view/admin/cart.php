@@ -111,7 +111,7 @@ $connector = $connection->conn();
         <td><strong>$<?= $total; ?></strong></td>
       </tr>
     </table>
-    <a href="../../src/controller/order.ctrl.php">
+    <a href="../admin/checkout.php">
       <button class="checkoutbutton">Proceed to checkout</button>
     </a>
   </div>

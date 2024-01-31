@@ -10,8 +10,8 @@ $answer = [];
 	{
 		$idp = $_POST['ID'];
 		$newdao->addtocart($idp);
-		echo "<script>alert(added to cart)</script>";
+		echo "<script>alert('added to cart')</script>";
 	}else{
-    echo "<script>alert(an error occured)</script>";
+    echo "<script>alert('an error occured')</script>";
   }
 ?>
