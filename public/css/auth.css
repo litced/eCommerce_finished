@@ -1,0 +1,76 @@
+body {
+    margin: 0;
+    display: grid;
+    place-items: center;
+    height: 100vh;
+    background: rgb(249, 250, 249);
+}
+
+#loginform {
+    display: none;
+}
+
+.container {
+    text-align: center;
+    
+}
+
+form {
+    width: 350px;
+    padding: 40px;
+    
+    border: none;
+    border-radius: 8px;
+    box-shadow: 1px 1px 4px rgb(192, 192, 192);
+    background-color: transparent;
+}
+
+.title,
+.title2 {
+    margin-bottom: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.registerinfo input,
+.logininfos input {
+    padding: 15px;
+    margin: 4px;
+    width: 100%;
+    letter-spacing: 1px;
+    font-size: 16px;
+    outline: none;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid black;
+}
+
+#registerbutton,
+#loginbutton {
+    margin-top: 30px;
+    margin-bottom: 15px;
+    padding: 15px;
+    width: 97%;
+    font-weight: 700;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border-radius: 10px;
+    border: none;
+    background-color: lightgreen;
+    cursor: pointer;
+}
+
+.toggleform {
+   font-size: 23px;
+   cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+#toggleForms:hover {
+    background-color: rgb(77, 214, 214);
+}
+
+.user,
+.user2 {
+    font-size: 48px;
+    color: rgb(144, 232, 238);
+    margin-bottom: 10px;
+}

@@ -1,0 +1,1737 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+body{
+    width: 100%;
+    margin: 0;
+    overflow-x: hidden;
+    
+}
+/* ----------HEADERR------- */
+#header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgb(255, 255, 255);
+    padding: 20px 80px;
+    box-shadow: 0px 1px 2px 1px rgba(255, 255, 255, 0.432);
+    z-index: 999;
+    /* width: 100%; */
+    position: sticky;
+    top: 0;
+    left: 0;
+}
+.profilecircle{
+  font-size: 36px;
+  
+
+}
+
+#number{
+  text-align: center;
+  color: white;
+  padding: 3px 5px;
+  border-radius: 100%;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  /* z-index: -1; */
+  cursor: default;
+  -webkit-user-select: none;
+  user-select: none;
+  position: absolute;
+  top: 43px;
+  right: 148px;
+  background-color: rgb(28, 139, 139);
+}
+
+.title{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+
+#navbar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#navbar li{
+    list-style: none;
+    padding: 0 16px;
+    position: relative;
+}
+
+
+
+#navbar li a{
+
+    text-decoration: none;
+    color: rgb(37, 37, 37);
+    font-weight: 600;
+    font-size: 16px;
+    font-family: 'Lato',open-sans;
+    transition: 0.3s ease-in-out;
+
+}
+#navbar li a:hover,
+#navbar li a.active{
+    color: rgb(116, 218, 236);
+    
+}
+#navbar li a.active::after,
+#navbar li a:hover::after{
+    content: "";
+    width: 50%;
+    height: 2px;
+    background: rgb(161, 221, 221);
+    position: absolute;
+    bottom: -4px;
+    left: 20px;
+}
+
+#menubutton{
+    background: transparent;
+    font-size: 29px;
+    border: none;
+    display: none;
+}
+
+#navbar li:nth-child(6) {
+    background-color: transparent;
+    
+ 
+}
+#navbar li:nth-child(7) {
+   background-color: transparent;
+ 
+}
+#navbar li:nth-child(7) i{
+    font-size: 30px;
+ 
+ 
+}
+#navbar li:nth-child(6) i{
+    font-size: 30px;
+ 
+}
+#menubutton.rotate {
+    transition: transform 0.3s ease;
+    transform: rotate(360deg);
+}
+
+.sidebar{
+    display: grid;
+    grid-template-rows: 70px 1fr 70px;
+    position: absolute;
+    top: 100%;
+    height: 100vh;
+    width: 390px;
+    right: 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-top: none;
+    padding: 30px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    overflow: auto;
+    transition: 0.3s ease-in-out;
+
+}
+
+.sidebar h1{
+    
+    padding: 10px;
+    margin: 0;
+    font-size: 34px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    filter: drop-shadow(2px 1px 6px);
+    font-weight: 300;
+
+}
+
+.sidebar .listCart .item{
+    display: grid;
+    grid-template-columns: 70px 150px 50px 1fr;
+    gap: 6px;
+    text-align: center;
+    align-items: center;
+}
+.sidebar .listCart .item img{
+    width: 100%;
+}
+
+.listCart .quantity {
+    display: inline-flex;
+    gap: 15px;
+    color: black;
+    cursor: pointer;
+}
+.listCart .quantity i {
+  top: 30%;
+  text-align: center;
+  padding: 5px;
+  
+}
+
+.listCart .quantity span{
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    margin-left: 10px;
+    background-color: lightgray;
+    color: black;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.listCart .quantity span:nth-child(2){
+    background-color: transparent;
+}
+
+
+/* -------------HOMEPAGE---------------- */
+
+#welcomepage{
+    font-family: 'Lato',
+        open-sans;
+    background: url("../image/computer1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 90vh;
+    width: 100%;
+    padding: 0 80px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    
+    
+}
+
+
+
+#welcomepage h4{
+    padding-bottom: 15px;
+    color: rgb(255, 255, 255);
+}
+#welcomepage h1{
+    color: rgb(178, 248, 248);
+    letter-spacing: 2px;
+}
+#welcomepage h2{
+    color: rgb(255, 255, 255);
+}
+#welcomepage p{
+    color: rgb(48, 228, 228);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+#welcomepage button{
+    background: url(../image/button.png);
+    background-repeat: no-repeat;
+    cursor: pointer;
+    color: rgb(3, 8, 8);
+    font-weight: 700;
+    padding: 14px 80px 14px 65px;
+    font-size: 15px;
+    border: 0;
+    border-radius: 10px;
+}
+#welcomepage button:hover{
+    filter: saturate(3);
+}
+.section1{
+    padding: 40px 80px;
+}
+
+.febox h6{
+    display: inline;
+    font-size: 15px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding: 9px 8px 6px 8px;
+    line-height: 2;
+    border-radius: 4px;
+    color: rgb(76, 179, 179);
+    background-color: blanchedalmond;
+}
+
+#features .febox{
+    width: 180px;
+    text-align: center;
+    padding: 25px 15px;
+    border: 1px solid rgb(221, 221, 221);
+    box-shadow: 2px 4px 5px rgb(161, 161, 161);
+    border-radius: 10px;
+    margin: 15px 0;
+    transition: .3s ease-in-out;
+}
+#features .febox:hover{
+    box-shadow: 1px 14px 10px rgb(161, 161, 161);
+}
+
+#features .febox img{
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+#features{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+#features .febox:nth-child(1) h6{
+    background-color: rgba(112, 209, 247, 0.411);
+}
+#features .febox:nth-child(2) h6{
+    background-color: rgba(252, 207, 255, 0.651);
+}
+#features .febox:nth-child(3) h6{
+    background-color: rgba(143, 255, 148, 0.651);
+}
+#features .febox:nth-child(4) h6{
+    background-color: rgba(130, 181, 247, 0.651);
+}
+
+/* ----------------------THE PRODUCTS-------------------------- */
+
+#product1{
+    text-align: center;
+}
+#product1 h1{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 50px;
+    letter-spacing: 7px;
+}
+#product1 p{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 35px;
+}
+#product1 .procontainer{
+    justify-content: space-between;
+    padding-top: 20px;
+    margin: 15px;
+    display: flex;
+    flex-wrap: wrap;
+ 
+
+}
+
+#product1 .pro{
+    width: 23%;
+    border-radius: 10px;
+    min-width: 250px;
+    padding: 4px 0px;
+    border: 1px solid black;
+    cursor: pointer;
+    box-shadow: 2px 2px 14px black;
+    margin: 10px 10px;
+    position: relative;
+
+}
+
+#product1 .pro img{
+    /* width: 100%; */
+    border-radius: 10px;
+    
+}
+#product1 .pro .des{
+    text-align: start;
+    padding: 13px 12px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+#product1 .pro .des span{
+    color: grey;
+    font-size: 12px;
+}
+#product1 .pro .des h5{
+    padding-top: 5px;
+    color: rgb(8, 7, 7);
+    font-size: 14px;
+}
+
+.star i:nth-child(5){
+    color: grey;
+
+}
+
+#product1 .pro .des i{
+    font-size: 22px;
+    
+}
+#product1 .pro .des h4{
+    color: rgb(77, 143, 143);
+    padding-top: 2px;
+    font-size: 19px;
+    font-weight: 700;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.shopping{
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 50px;
+    background-color: rgb(195, 243, 180);
+    color: rgb(43, 77, 43);
+    border: 1px solid black;
+    position: absolute;
+    right: 10px;
+    bottom: 20px;
+}
+
+.shopping:hover{
+    background-color: rgb(134, 250, 98);
+}
+.section-m1{
+    margin: 40px 0;
+}
+
+/* -------------------------THE ELECTRONICS PART------------------------ */
+
+#product0{
+    text-align: center;
+
+}
+#product0 h1{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 50px;
+    letter-spacing: 7px;
+}
+#product0 p{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 35px;
+}
+
+#product0 .procontainer0{
+   display: flex;
+   flex-wrap: inherit;
+   
+}
+
+ #product0 .pro0{
+    width: 23%;
+    border-radius: 10px;
+    min-width: 330px;
+    padding: 4px 0px;
+    border: 1px solid black;
+    cursor: pointer;
+    box-shadow: 2px 2px 14px black;
+    margin: 10px 10px;
+    position: relative;
+
+} 
+
+#product0 .pro0 .des i{
+    font-size: 22px;
+    
+} 
+ #product0 .pro0 .des h4{
+    color: rgb(77, 143, 143);
+    padding-top: 2px;
+    font-size: 19px;
+    font-weight: 700;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+} 
+
+#product0 .pro0 img{
+    width: 100%;
+    height: 350px;
+    border-radius: 10px;
+    display: flex;
+    flex-wrap: wrap;
+}
+#product0 .pro0 .des{
+    text-align: start;
+    padding: 13px 12px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+#product0 .pro0 .des span{
+    color: grey;
+    font-size: 12px;
+}
+.shoppings{
+
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 50px;
+    background-color: rgb(195, 243, 180);
+    color: rgb(43, 77, 43);
+    border: 1px solid black;
+    position: absolute;
+    right: 10px;
+    bottom: 20px;
+} 
+
+/* --------------------THE BANNERS---------------- */
+
+#banner{
+    background: url("../image/test1.webp");
+    color: rgb(206, 206, 206);
+    width: 100%;
+    height: 40vh;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 18px;
+
+}
+
+#banner h4{
+    font-size: 20px;
+    color: rgba(253, 253, 253, 0.918);
+}
+
+#banner h2{
+    font-size: 35px;
+    padding: 10px ;
+    color: white;
+}
+
+#banner span{
+    color: rgb(174, 241, 174);
+}
+
+.bannerbutton{
+    font-size: 14px;
+    font-family: 'lato', open-sans;
+    font-weight: 800;
+    padding: 15px 40px;
+    color: black;
+    background-color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    transition: 0.3s;
+}
+
+.multiplebanner {
+    font-size: 17px;
+    font-family: 'lato', open-sans;
+    font-weight: 600;
+    padding: 15px 40px;
+    color: rgb(255, 255, 255);
+    background-color: transparent;
+    cursor: pointer;
+    border: 1px solid white;
+    outline: none;
+    transition: 0.3s;
+}
+
+.bannerbutton:hover{
+    background-color: rgb(187, 187, 187);
+    
+}
+#smbanner{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+}
+
+#smbanner .banner-box{
+        background: url("../image/b17.jpg");
+            color: rgb(206, 206, 206);
+            height: 50vh;
+            min-width: 640px;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            padding: 25px;
+            border-radius: 10px;
+}
+#smbanner .banner-box2{
+    background: url(../image/b10.jpg);
+    background-size: cover;
+        background-position: center;
+}
+
+#smbanner .banner-box{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: rgb(243, 243, 243);
+    font-size: 26px;
+}
+
+.banner-box h4{
+    padding-bottom: -49px;
+}
+.banner-box button{
+    margin-top: 30px;
+    padding: 10px;
+}
+
+.banner-box span{
+    color: black;
+    font-size: 20px;
+}
+
+#smbanner .banner-box:hover button{
+    background: rgb(60, 155, 123);
+    color: white;
+    border: 1px solid rgb(60, 155, 123);;
+}
+#banner3{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 0 90px;
+}
+#banner3 .banner-box{
+            background: url("../image/b18.jpg");
+                color: rgb(206, 206, 206);
+                height: 30vh;
+                min-width: 15%;
+                background-size: cover;
+                background-position: center;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: flex-start;
+                font-family: Verdana, Geneva, Tahoma, sans-serif;                padding: 30px;
+                margin-bottom: 20px;
+}
+#banner3 .banner-box h2{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-weight: 200;
+        color: white;
+        text-shadow: 1px 2px 5px rgba(255, 255, 255, 0.623);
+
+}
+#banner3 .banner-box h3{
+text-shadow: 1px 3px 1px rgba(0, 0, 0, 0.623);
+color: white;
+
+}
+#banner3 .banner-box3{
+    background: url("../image/home.jpg");
+    background-size: cover;
+        background-position: center;
+        color: rgb(255, 255, 255);
+}
+#banner3 .banner-box4 {
+    background: url("../image/acc.jpg");
+    background-size: cover;
+    background-position: center;
+    color: white;
+    font-weight: 700;
+}
+#banner3 .banner-box4 h2{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: 200;
+    text-shadow: 1px 2px 5px rgba(255, 255, 255, 0.623);
+}
+
+#banner3 .banner-box3 h2 {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: 200;
+    text-shadow: 1px 3px 1px rgba(0, 0, 0, 0.623);
+    
+}
+#banner3 .banner-box3 h3 {
+    text-shadow: 1px 3px 1px rgba(0, 0, 0, 0.623);
+    
+}
+
+/* -----------------------THE NEWSLETTER------------------- */
+
+#newsletter{
+    background: url("../image/bannerplain.jpg");
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+#newsletter .newstext{
+    font-size: 20px;
+    padding: 0 12px;
+}
+
+#newsletter .newstext h4{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 3px rgb(126, 125, 125);
+}
+#newsletter .newstext p{
+    font-weight: 200;
+    text-shadow: 1px 1px 3px rgb(126, 125, 125);
+}
+#newsletter .newstext span{
+    color: rgb(94, 81, 58);
+    text-shadow: 1px 1px 3px rgb(126, 125, 125);
+}
+
+#newsletter input{
+    height: 3.125rem;
+    padding: 0 1.25em;
+    font-size: 14px;
+    width: 150%;
+    border: transparent;
+    outline: none;
+}
+#newsletter button{
+padding: 12px;
+width: 65%;
+border: none;
+background: rgb(118, 207, 118);
+cursor: pointer;
+font-weight: 500;
+font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+}
+#newsletter button:hover{
+background-color: rgb(84, 161, 84);
+
+}
+#newsletter .forms{
+display: flex;
+flex-wrap: wrap;
+flex-direction: row;
+width: 40%;
+
+}
+#newsletter .forms form {
+    display: flex;
+}
+
+/* ------------------------THE FOOTER------------------- */
+
+footer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+footer .col{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 2px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-left: 10px;
+}
+footer .col h4{
+    color: black;
+    font-weight: 700;
+    font-size: 25px;
+}
+footer .col a{
+text-decoration: none;
+color: rgb(63, 63, 63);
+transition: 0.3s ease-in-out;
+}
+footer .col a:hover{
+    color: blue;
+}
+
+footer .install .row img{
+    border: 1px solid rgb(60, 155, 123);
+    border-radius: 6px;
+    cursor: pointer;
+}
+footer .icons{
+    margin: 10px;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+
+/* --------------------------SHOPPING PAGE--------------------------- */
+
+#shoppingpage {
+    background: url("../image/banner1.jpg");
+    width: 100%;
+    height: 40vh;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    padding: 14px;
+}
+
+#shoppingpage h2,
+#shoppingpage p {
+    font-size: 29px;
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#pagination{
+    text-align: center;
+    margin: 12px 0px 22px;
+    
+}
+#pagination a{
+    text-decoration: none;
+    background-color: rgb(116, 218, 236);
+    padding: 13px 18px;
+    border-radius: 4px;
+    color: white;
+    font-weight: 600;
+    transition: 0.3s ease-in-out;
+    
+}
+#pagination a:hover{
+  
+    background-color: rgb(91, 167, 180);
+
+    
+}
+#pagination a i{
+font-size: 17px;
+font-weight: 600;
+    
+}
+
+
+/* --------------------SINGLE PRODUCTS------------------ */
+
+#prodetails{
+    display: flex;
+    margin-top: 20px;
+
+}
+
+#prodetails .single-pro-image{
+    width: 40%;
+    margin-right: 50px;
+}
+.small-img-group{
+    display: flex;
+    justify-content: space-between;
+}
+.small-img-col{
+    flex-basis: 24%;
+    cursor: pointer;
+}
+#prodetails .single-pro-details{
+    width: 50%;
+    padding-top: 30px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+#prodetails .single-pro-details h4{
+   padding: 40px 0 10px 0;
+}
+#prodetails .single-pro-details h2{
+   font-size: 26px;
+}
+#prodetails .single-pro-details select{
+   display: block;
+   padding: 5px 10px;
+   margin-bottom: 10px;
+}
+#prodetails .single-pro-details input{
+    width: 50px;
+    height: 47px;
+    padding-left: 10px;
+    font-size: 16px;
+    margin-right: 10px;
+}
+#prodetails .single-pro-details input:focus{
+    outline: none;
+}
+#prodetails .single-pro-details button{
+    background: rgb(116, 218, 236);
+    color: white;
+    border-radius: 9px;
+    border: none;
+    padding: 15px;
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
+}
+#prodetails .single-pro-details button:hover{
+    background: rgb(82, 153, 165);
+
+}
+
+/* --------------------------------BLOG PAGE----------------------- */
+
+#blogpage{
+    background: url("../image/banner2.jpg");
+    width: 100%;
+    height: 40vh;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    padding: 14px;
+}
+#blogpage h2,
+#blogpage p{
+    color: rgba(255, 255, 255, 0.884);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 29px;
+}
+
+#blog{
+    padding: 150px 150px 0 150px;
+}
+#blog .blog-box{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    padding-bottom: 90px;
+}
+#blog .blog-img{
+    width: 50%;
+    margin-right: 40px;
+}
+#blog img{
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    
+}
+#blog .blog-details{
+    width: 50%;
+    margin-right: 40px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+ 
+    
+}
+#blog .blog-details h4 {
+   font-size: 19px;   
+   font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+#blog .blog-details a {
+    text-decoration: none;
+    font-size: 15px;
+    color: black;
+    font-weight: 700;
+    position: relative;
+    transition: 0.3s ease-in-out;
+ 
+    
+}
+#blog .blog-details a::after {
+    content: "";
+    width: 50px;
+    height: 1px;
+    background-color: black;
+    position: absolute;
+    top: 4px;
+    right: -60px;
+
+}
+#blog .blog-details a:hover{
+    color: rgb(116, 218, 236);
+}
+#blog .blog-details a:hover:after{
+    background-color: rgb(116, 218, 236);
+}
+#blog .blog-box h1{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    position: absolute;
+    top: -119px;
+    left: 0;
+    font-size: 70px;
+    font-weight: 700;
+    color: rgba(219, 219, 219, 0.795);
+    z-index: -9;
+
+}
+
+/* -------------------THE ABOUT PAGE-------------------- */
+
+#aboutuspage{
+    background: url("../image/about2.jpg");
+    width: 100%;
+        height: 25vh;
+        background-size: cover;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        flex-direction: column;
+        padding: 14px;
+}
+#aboutuspage h2,
+#aboutuspage p{
+    color: white;
+    font-size: 24px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.abouthead1{
+  display: flex;
+  align-items: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  
+  
+}
+.aboutapp1 h1{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;  
+}
+.aboutapp1 a{
+    text-decoration: none;  
+}
+
+ .abouthead1 img{
+    width: 50%;
+    height: auto;
+    
+}
+
+.abouthead1 div{
+    padding-left: 40px;
+}
+
+#aboutapp{
+    text-align: center;
+}
+#aboutapp .video{
+    width: 90%;
+    height: 100%;
+    margin: 30px auto 0 auto;
+}
+#aboutapp .video video{
+    width: 100%;
+    height: 100%;
+    border: 1px solid gray;
+    border-radius: 20px;
+    object-fit: cover;
+}
+
+/* ----------------------------CONTACT US PAGE-------------------------- */
+
+.contactdetails1{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.contactdetails1 .details{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    width: 40%;
+}
+.contactdetails1 .details span,
+#formdetails form span{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 12px;
+}
+.contactdetails1 .details h2,
+#formdetails form h2{
+    font-size: 26px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    line-height: 35px;
+    padding: 20px 0;
+}
+.contactdetails1 .details h3{
+    font-size: 16px;
+    padding-bottom: 15px;
+    
+
+}
+.contactdetails1 .details li{
+   list-style: none;
+   display: flex;
+   padding: 10px 0;
+    
+
+}
+.contactdetails1 .details li i{
+   font-size: 14px;
+   padding-right: 22px;
+}
+.contactdetails1 .details li p{
+    margin: 0;
+    font-size: 14px;
+
+}
+.contactdetails1 .map{
+    width: 55%;
+    height: 400px;
+    
+
+}
+.contactdetails1 .map iframe{
+    width: 100%;
+    height: 100%;
+
+
+}
+
+#formdetails form{
+    width: 65%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+}
+
+#formdetails form input,
+#formdetails form textarea{
+    width: 100%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding: 12px 15px;
+    outline: none;
+    margin-bottom: 20px;
+    border: 1px solid gray;
+
+}
+
+#formdetails form #submitbutton{
+    background-color: rgb(116, 218, 236);
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 2px;
+    font-size: 16px;
+}
+
+/* ----------------------THE CART PAGE------------------*/
+
+#cartpage{
+    background: url("../image/cart7.jpg");
+    width: 100%;
+    color: white;
+    font-size: 25px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    height: 30vh;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    padding: 14px;
+}
+
+#cart table{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+    table-layout: fixed;
+    white-space: nowrap;
+    
+}
+#cart table img{
+    width: 70px;
+
+}
+#cart table td:nth-child(1){
+    width: 100px;
+    cursor: pointer;
+    text-align: center;
+    
+
+}
+#cart table td:nth-child(2){
+    width: 150px;
+    text-align: center;
+
+
+}
+#cart table td:nth-child(3){
+    width: 250px;
+    text-align: center;
+
+
+}
+#cart table td:nth-child(4),
+#cart table td:nth-child(5),
+#cart table td:nth-child(6){
+    width: 150px;
+    text-align: center;
+}
+
+#cart table td:nth-child(5) input{
+  width: 70px;  
+  padding: 10px 5px 10px 15px;
+}
+#cart table thead{
+    border: 1px solid black;
+    border-left: none;
+    border-right: none;
+}
+#cart table thead td {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 13px;
+    padding: 18px 0;
+
+}
+#cart table thead tr td {
+  padding-top: 15px;
+
+}
+#cart table thead td{
+    font-size: 13px;
+}
+
+#cartadd{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+}
+
+#coupon{
+    width: 50%;
+    margin-bottom: 30px;
+
+}
+#coupon h3,
+#subtotal h3{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding-bottom: 15px;
+
+}
+#coupon input{
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding: 10px 20px;
+    outline: none;
+    width: 60%;
+    margin-right: 10px;
+    border: 1px solid gray;
+}
+
+#coupon button,
+#subtotal button{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: rgb(116, 218, 236);
+    color: white;
+    cursor: pointer;
+    border: none;
+    padding: 12px 20px;
+}
+#subtotal{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    width: 30%;
+    margin-bottom: 30px;
+    border: 1px solid grey;
+    padding: 30px;
+
+}
+#subtotal table{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 20px;
+
+}
+#subtotal table td{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    width: 50%;
+    border: 1px solid grey;
+    padding: 10px;
+    font-size: 17px;
+}
+
+.quantityUpdate{
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: black;
+    display: inline;
+    width: 30%;
+    font-size: 24px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    user-select: none;
+}
+.quantityUpdate span{
+    text-align: center;
+}
+/* -------------------------ADMIN PAGE------------------ */
+
+
+.dashboardadmin {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 0.8fr);
+    grid-gap: 31px;
+    gap: 1px;
+    padding: 10px;
+    height: 80vh;
+    width: 100%;   
+}
+
+.theadminproducts {
+    background-color: rgba(225, 253, 253, 0.5);
+    padding: 40px;
+    border: 3px solid rgba(180, 180, 180, 0.438);
+    border-radius: 10px;
+    height: 250px; 
+    overflow-y: auto;
+    
+        display: block;
+}
+
+
+.dashboardadmin .theadminproducts h1 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 25px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 10px;
+}
+
+thead {
+    background-color: #f2f2f2;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 500;
+    overflow: auto;
+        
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+
+button {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 25px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.productbuttons {
+    display: flex;
+    gap: 6px;
+}
+
+.productbuttons button:nth-child(1) {
+    background-color: rgb(128, 255, 128);
+    color: black;
+    padding: 10px 28px;
+    font-weight: bold;
+    border-radius: 9px;
+    transition: 0.2s ease-in-out;
+}
+
+.productbuttons button:nth-child(2) {
+    background-color: rgb(241, 241, 110);
+    color: black;
+    font-weight: bold;
+    border-radius: 9px;
+    transition: 0.2s ease-in-out;
+}
+
+.productbuttons button:nth-child(3) {
+    background-color: rgb(243, 98, 98);
+    color: black;
+    font-weight: bold;
+    border-radius: 9px;
+    transition: 0.2s ease-in-out;
+}
+
+.productbuttons button:nth-child(3):hover{
+    background-color: rgb(165, 62, 62);
+}
+.productbuttons button:nth-child(1):hover{
+    background-color: rgb(92, 187, 92);
+}
+.productbuttons button:nth-child(2):hover{
+    background-color: rgb(184, 184, 82);
+}
+
+/* --------------------------------PRODUCTMODAL---------------- */
+
+#window {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(196, 189, 189, 0.479);
+    z-index: 1;
+}
+
+#modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -40%);
+    padding: 80px;
+    height: 70%;
+    z-index: 99999;
+    background-color: white;
+    border-radius: 10px;
+    font-family: 'Noto Sans', sans-serif;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.ModalTitle {
+    text-align: center;
+}
+
+.UpdateForm {
+    margin-bottom: 15px;
+}
+
+.UpdateCon {
+width: 100%;
+    outline: none;
+    padding: 18px;
+    border: none;
+    background: none;
+    border-bottom: 1px solid black;
+    box-sizing: border-box;
+}
+
+.UpdateCon:focus:not(:placeholder-shown),
+.UpdateCon:valid:not(:placeholder-shown) {
+    border-color: #66afe9;
+
+}
+
+
+.select {
+    border: none;
+    font-weight: bold;
+    background: none;
+    outline: none;
+    width: 70%;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+.select option {
+    font-family: 'Robotos', sans-serif;
+    background-color: rgba(0, 150, 150, 0.998);
+    width: 100%;
+    font-size: 14px;
+    letter-spacing: 5px;
+}
+
+#modalbuttons {
+    text-align: center;
+    position: absolute;
+    bottom: 6;
+    width: 50%;
+    left: 60px;
+
+}
+
+.ModalButtonSave {
+    font-family: 'Noto Sans', sans-serif;
+    padding: 6px;
+    width: 60%;
+    cursor: pointer;
+    background-color: rgb(185, 185, 185);
+    border: none;
+}
+
+.ModalButtonSave:hover {
+    background-color: rgb(126, 126, 126);
+}
+
+#modalbuttons {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: absolute;
+    bottom: 6;
+    width: 80%;
+}
+
+
+
+/* --------------------------WORKERMODAL----------------------- */
+
+#windowworker {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(196, 189, 189, 0.479);
+    z-index: 1;
+}
+
+#modalworker {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 80px;
+    height: 60%;
+    z-index: 99999;
+    background-color: white;
+    border-radius: 10px;
+    font-family: 'Noto Sans', sans-serif;
+}
+/* --------------------------UserUpdateModal----------------------- */
+
+#updateusermodalwindow {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(196, 189, 189, 0.479);
+    z-index: 1;
+}
+
+#updateusermodal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 80px;
+    height: 60%;
+    z-index: 99999;
+    background-color: white;
+    border-radius: 10px;
+    font-family: 'Noto Sans', sans-serif;
+}
+.buttonsupdate{
+  margin-top: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* --------------------MEDIA QUERY-------------------   */
+
+@media (max-width: 650px){
+    #navbar{
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        position: fixed;
+        top: 93px;
+        right: 0;
+        height: 100vh;
+        width: 300px;
+        background-color: rgb(255, 255, 255);
+        padding: 80px 0 0 10px;
+        box-shadow: 0px 1px 2px 1px rgba(255, 255, 255, 0.432);
+        transition: max-height 0.3s ease-out;
+    }
+
+    #navbar li{
+        margin-bottom: 25px;
+    }
+
+/* ------------THE BLOG PAGE------------- */
+
+    #blog {
+        padding: 100px 20px 0 20px;
+    }
+
+    #blog .blog-box {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        position: relative;
+        padding-bottom: 90px;
+    }
+
+    #blog .blog-img {
+        width: 100%;
+        margin-right: 0px;
+        margin-bottom: 30px;
+    }
+
+    #blog .blog-details {
+        width: 100%;
+
+    }
+
+/* ------------------ABOUT US PAGE----------------- */
+
+.abouthead1 {
+    flex-direction: column;
+
+}
+
+.abouthead1 img {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.abouthead1 div {
+    padding-left: 0px;
+}
+
+#aboutapp .video {
+    width: 100%;
+
+}
+} 
+
+
+
+
+
+
+
+
+
+/* -----------------PHONE RESPONSIVE------------------ */
+
+
+@media (max-width: 477px){
+    #header{
+        padding: 10px 30px;
+    }
+    h1{
+        font-size: 38px;
+        
+    }
+    h2{
+        font-size: 32px;
+        
+    }
+    #hero{
+        padding: 0 20px;
+        background-position: 55%;
+    }
+    #feature{
+        justify-content: space-between;
+    }
+    #feature .febox{
+        width: 155px;
+        margin: 0 0 15px 0;
+    }
+        #product1 .pro {
+            width: 100%;
+        
+        }
+    #banner{
+        height: 40vh;
+    }
+
+    #smbanner .banner-box{
+        height: 40vh;
+    }
+    #smbanner .banner-box2{
+        margin-top: 20px;
+    }
+    #banner3{
+        padding: 0 20px;
+    }
+    #banner3 .banner-box{
+        width: 100%;
+    }
+    #newsletter{
+        padding: 40px 20px;
+    }
+    #newsletter .forms{
+       width: 100%;
+    }
+    footer .copyright{
+        text-align: start
+        ;
+    }
+
+ /* -----------------THE BLOG PAGE ------------- */
+
+     #blog{
+        padding: 100px 20px 0 20px;
+    }  
+
+    #blog .blog-box {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        position: relative;
+        padding-bottom: 90px;
+    }
+
+    #blog .blog-img {
+      width: 100%;
+      margin-right: 0px;
+      margin-bottom: 30px;
+    }
+    #blog .blog-details {
+      width: 100%;
+
+    }
+
+/* -----------------------ABOUT US PAGE------------------ */
+
+.abouthead1 {
+    flex-direction: column;
+
+}
+ .abouthead1 img {
+     width: 100%;
+    margin-bottom: 20px;
+ }
+
+ .abouthead1 div {
+     padding-left: 0px;
+ }
+ #aboutapp .video {
+     width: 100%;
+    
+ }
+
+/* ----------CONTACT US PAGE------------- */
+
+#formdetails form input,
+#formdetails form textarea {
+  
+    text-align: start;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+
+}
+
+#formdetails form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+
+}
