@@ -33,6 +33,7 @@ else
   <script src="http://localhost/eCommerce/public/js/workerdelete.js"></script>
   <script src="http://localhost/eCommerce/public/js/addcart.js"></script>
   <script src="http://localhost/eCommerce/public/js/UpdateUser.js"></script>
+  <script src="http://localhost/eCommerce/public/js/placeorder.js"></script>
 
   <!-- -------------------TOASTIFY'S LINK----------------- -->
 

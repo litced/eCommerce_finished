@@ -7,65 +7,29 @@ use src\dao\Dao;
 
 $newdao = new Dao;
 $answer = [];
+if($_POST){
+  extract($_POST);
+  $productId = htmlspecialchars($productId);
+  $productQuantity = htmlspecialchars($productQuantity);
+  $productPrice = htmlspecialchars($productPrice);
+  $total = htmlspecialchars($total);
+  $method = htmlspecialchars($method);
 
-if (!empty($_SESSION['addTocart'])) {
-
-  $item_ids = implode(" ,", $_SESSION['id']);
-  $amount = implode(" ,", $_SESSION['quantity']);
-  $price = implode(" ,", $_SESSION['prices']);
-  $total = $_SESSION['total'];
-  $order_date = date("d, M Y - h:i:s a");
-  var_dump($item_ids,$amount,$price,$total);
-
-  $newdao->Order($item_ids, $amount, $price, $total, $Method, $created_at);
+  
+  // var_dump("productID: " . $productId, "productPrice: " . $productPrice, "productQuantity: " . $productQuantity, "Total: " . $total, "Method: " . $method);
 
 
-  if ($query->rowCount() > 0) {
-    echo "<script>window.onload = function() {subOrderSucc();}</script>";
+  $newdao->Order($productId, $productQuantity, $productPrice, $total, $method);
 
-  } else
-    echo "<script>window.onload = function() {subOrderErr();} </script>";
-} else
-  echo "<script>window.location = '../home.php'</script>";
-
-include_once "../includes/footer.php";
-?>
-<script>
-  function subOrderSucc() {
-    Swal.fire({
-      title: 'Submitting Order',
-      text: 'Order Submitted Successfully',
-      icon: 'success',
-      showConfirmButton: false,
-      showCancelButton: false,
-      timer: 3000
-    }).then(function() {
-      window.location = "invoice.php";
-    });
-  }
-
-  function subOrderErr() {
-    Swal.fire({
-      title: 'Submitting Order',
-      text: 'Order did not submit successfully',
-      icon: 'error',
-      showConfirmButton: false,
-      showCancelButton: false,
-      timer: 5000
-    }).then(function() {
-      window.location = "cart.php";
-    });
-  }
-</script>
-<!-- $answer = [
-"status"=> true,
-"message"=> "Order Submitted"
-];
+  $answer =[
+    "status"=> true,
+    "message"=> "Order Submitted"
+  ];
 }else{
-$answer=[
-"status"=>false,
-"message"=>"error encountered"
-];
+  $answer = [
+    "status" => false,
+    "message" => "An error occured Order Cancelled"
+  ];
 }
-echo json_encode($answer); -->
+echo json_encode($answer);
 

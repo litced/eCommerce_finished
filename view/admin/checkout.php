@@ -10,6 +10,7 @@ include_once "../../vendor/autoload.php";
 include "../../src/config/instance.php";
 
 
+
 // --------------------------ANOTHER VERSION---------------
 
 // $randomNumber = isset($_SESSION['deliveryRandomNumber']) ? $_SESSION['deliveryRandomNumber'] : rand(0, 50);
@@ -61,35 +62,55 @@ $Ftotal = $Dcharge + $total;
 
           $allDescriptions = rtrim($allDescriptions, ', ');
           ?>
-          </h6>
-          <h6 class="lead"><b>Product(s) : <?= $allDescriptions ?></b>
-            <h6 class="lead"><b>Delivery Charge : </b><?= $Dcharge; ?>$</h6>
-            <h5><i>Taxes: <?= $taxe ?>$</i></h5>
-            <h5><b>Total Amount Payable : <?= $Ftotal ?>$</b>
-            <?php
-          endif;
-            ?>
-            </h5>
+
+
+        <?php
+        endif;
+        ?>
+        </h5>
       </div>
-      <form action="" method="post" id="placeOrder">
-        <input type="hidden" name="products" value="<?= $allDescriptions ?>">
-        <input type="hidden" name="grand_total" value="<?= $Ftotal ?>">
-        <div style="margin-bottom: 10px;" class="form-group">
-          <input type="text" name="name" class="form-control" placeholder="Enter Name" required>
-        </div>
-        <div style="margin-bottom: 10px;" class="form-group">
-          <input type="email" name="email" class="form-control" placeholder="Enter E-Mail" required>
-        </div>
-        <div style="margin-bottom: 10px;" class="form-group">
-          <input type="tel" name="phone" class="form-control" placeholder="Enter Phone" required>
-        </div>
-        <div style="margin-bottom: 
-        10px;" class="form-group">
-          <textarea name="address" class="form-control" rows="3" cols="10" placeholder="Enter Delivery Address Here..."></textarea>
-        </div>
+      <form id="placeOrder">
+        <input type="number" name="productId" style="display: none;" value="<?= $fetch["idp"] ?>">
+        <input type="text" name="productname" hidden value="<?= $allDescriptions ?>">
+        <input type="number" name="productPrice" hidden value="<?= $fetch['price']; ?>">
+        <input type="number" name="DeliveryCharge" hidden value="<?= $Dcharge; ?>">
+        <input type="number" name="productQuantity" hidden value="<?= $fetch['quantity'] ?>">
+        <input type="number" name="taxes" hidden value="<?= $taxe ?>">
+        <input type="number" name="total" hidden value="<?= $Ftotal ?>">
+        <table>
+          <tr style="display: none;">
+            <td>Product ID:</td>
+            <td><?= $fetch["idp"] ?></td>
+          </tr>
+          <tr>
+            <td>Product Name:</td>
+            <td><?= $allDescriptions ?></td>
+          </tr>
+          <tr>
+            <td>Product Price:</td>
+            <td><?= $fetch['price'] ?></td>
+          </tr>
+          <tr>
+            <td>Delivery Charge:</td>
+            <td><?= $Dcharge ?></td>
+          </tr>
+          <tr>
+            <td>Product Quantity:</td>
+            <td><?= $fetch['quantity'] ?></td>
+          </tr>
+          <tr>
+            <td>Taxes:</td>
+            <td><?= $taxe ?></td>
+          </tr>
+          <tr>
+            <td>Total:</td>
+            <td><?= $Ftotal ?></td>
+          </tr>
+        </table>
+
         <h6 class="text-center lead">Select Payment Mode</h6>
         <div style="margin-bottom: 10px;" class="form-group">
-          <select name="pmode" class="form-control">
+          <select name="method" class="form-control">
             <option value="" selected disabled>-Select Payment Mode-</option>
             <option value="cod">Cash On Delivery</option>
             <option value="netbanking">Net Banking</option>
@@ -98,9 +119,7 @@ $Ftotal = $Dcharge + $total;
           </select>
         </div>
         <div style="text-align: center;" class="form-group">
-        <a href="../../src/controller/order.ctrl.php"></a>
           <input type="submit" name="submit" value="Place Order" class="btn btn-success btn-block " style="font-size: 15px; padding: 10px 30%;">
-        </div>
       </form>
     </div>
   </div>

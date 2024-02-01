@@ -176,15 +176,14 @@ class Dao{
 // -----------------ORDER/CHECKOUT-------------------
 
  
-    public function Order($item_ids, $amount, $price, $total, $Method,$created_at){
-      $stmn = $this->connection->conn()->prepare("INSERT INTO orders(item_id, amount, item_price, Total, Method,created_at)VALUES(:item_id, :amount, :item_price, :Total, :Method, :created_at)");
+    public function Order($productId, $productQuantity, $productPrice, $total, $method){
+      $stmn = $this->connection->conn()->prepare("INSERT INTO orders(productId, productQuantity, productPrice, total, method)VALUES(:productId, :productQuantity, :productPrice, :total, :method)");
       $stmn->execute([
-        ":item_id"=> $item_ids,
-        ":amount"=> $amount,
-        ":item_price"=> $price,
-        ":Total"=> $total,
-        ":Method"=> $Method,
-        ":created_at"=> $created_at
+        ":productId"=>$productId,
+        ":productQuantity"=>$productQuantity,
+        ":productPrice"=>$productPrice,
+        ":total"=>$total,
+        ":method"=>$method
       ]);
     }
   

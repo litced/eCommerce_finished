@@ -79,29 +79,31 @@ $orders->execute();
         <thead>
           <tr>
             <td>order_id</td>
-            <td>user_id</td>
+            <td>productId</td>
             <td>Order_date</td>
-            <td>amount </td>
+            <td>Quantity</td>
+            <td>Price</td>
             <td>Total</td>
-            <td>Statue</td>
+            <td>Method</td>
           </tr>
         </thead>
         <tbody>
           <?php foreach ($orders as $fetch) : ?>
             <tr>
               <td><?= $fetch["order_id"] ?></td>
-              <td><?= $fetch["user_id"] ?></td>
+              <td><?= $fetch["productId"] ?></td>
               <td><?= $fetch["order_date"] ?></td>
-              <td><?= $fetch["amount"] ?></td>
-              <td><?= $fetch["Total"] ?></td>
-              <td><?= $fetch["Status"] ?></td>
-              <td>
+              <td><?= $fetch["productQuantity"] ?>pces</td>
+              <td><?= $fetch["productPrice"] ?>$</td>
+              <td><?= $fetch["total"] ?>$</td>
+              <td><?= $fetch["method"] ?></td>
+              <!-- <td>
                 <div class="productbuttons">
                   <button>Delivered</button>
                   <button>Pending</button>
                   <button>Canceled</button>
                 </div>
-              </td>
+              </td> -->
             </tr>
           <?php endforeach; ?>
         </tbody>
