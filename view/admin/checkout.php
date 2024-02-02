@@ -181,7 +181,6 @@ $Ftotal = $Dcharge + $total;
                 },
               }).showToast();
             } else {
-              // Continue with your existing code
               var formData = new FormData(form);
               var ajax = new XMLHttpRequest();
               ajax.open("POST", "http://localhost/eCommerce/src/controller/order.ctrl.php", true);

@@ -36,7 +36,7 @@
 $(document).ready(function () {
   let $button = $("#menubutton");
   let $menu = $("#navbar");
-  let $menubar = $("#menubutton");
+  let $menubar = $("#menubutton"); 
 
   responsive();
   $(window).on("resize", responsive);
@@ -67,6 +67,7 @@ $(document).ready(function () {
     }
   }
 });
+
 
 // --------------NAVBAR ANIMATION SELECT---------------
 

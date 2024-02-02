@@ -77,9 +77,7 @@ else
       display: block;
     }
 
-    .CardField-number CardField-child {
-      background-color: red;
-    }
+
   </style>
 </head>
 
@@ -88,7 +86,7 @@ else
     <h2 class="title" style="cursor: pointer;" onclick="window.location.href='http://localhost/eCommerce/view/admin/'">shopEx</h2>
     <div>
 
-      <button id="menubutton"><i class="fa-solid fa-bars"></i></button>
+      <button id="menubutton"><i class="fa-solid fa-bars menubar"></i></button>
 
       <ul id="navbar">
         <li><a id="home" href="http://localhost/eCommerce/view/admin/">Home</a></li>
