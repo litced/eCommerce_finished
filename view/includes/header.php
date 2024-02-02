@@ -2,6 +2,7 @@
 
 $Session = $_SESSION["admin"];
 $RoleSession = $Session["roles"];
+$sessionId = $Session["id"];
 
 $count = '';
 if (!empty($_SESSION['addTocart']))

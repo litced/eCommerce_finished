@@ -9,6 +9,7 @@ $newdao = new Dao;
 $answer = [];
 if($_POST){
   extract($_POST);
+  $userid = htmlspecialchars($userid);
   $productId = htmlspecialchars($productId);
   $productQuantity = htmlspecialchars($productQuantity);
   $productPrice = htmlspecialchars($productPrice);
@@ -18,7 +19,7 @@ if($_POST){
   
 
 
-  $newdao->Order($productId, $productQuantity, $productPrice, $total, $method);
+  $newdao->Order($productId, $productQuantity, $productPrice, $total, $method, $userid);
 
   if (!empty($_SESSION['addTocart'])) {
     unset($_SESSION['addTocart']);

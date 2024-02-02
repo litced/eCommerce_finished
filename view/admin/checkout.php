@@ -5,10 +5,12 @@ if (empty($_SESSION["admin"])) {
   header("location: http://localhost/eCommerce/view/admin/auth.php");
   exit();
 }
+$Session = $_SESSION["admin"];
+// var_dump($Session);
+
 include "../includes/header.php";
 include_once "../../vendor/autoload.php";
 include "../../src/config/instance.php";
-
 
 
 // --------------------------ANOTHER VERSION---------------
@@ -44,6 +46,7 @@ $Ftotal = $Dcharge + $total;
 
 ?>
 
+
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-lg-6 px-2 pb-5" id="order">
@@ -70,6 +73,8 @@ $Ftotal = $Dcharge + $total;
         </h5>
       </div>
       <form id="placeOrder">
+        
+        <input type="number" name="userid" hidden value="<?= $Session["id"]; ?>">
         <input type="number" name="productId" style="display: none;" value="<?= $fetch["idp"] ?>">
         <input type="text" name="productname" hidden value="<?= $allDescriptions ?>">
         <input type="number" name="productPrice" hidden value="<?= $fetch['price']; ?>">
