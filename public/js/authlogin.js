@@ -4,7 +4,6 @@ document.addEventListener("DOMContentLoaded", function () {
     z.preventDefault();
     let formData = new FormData(registerForm);
     let ajax = new XMLHttpRequest();
-    // ajax.setRequestHeader('Content-Type', 'application/json');
     ajax.open(
       "POST",
       "http://localhost/eCommerce/src/controller/login.ctrl.php",

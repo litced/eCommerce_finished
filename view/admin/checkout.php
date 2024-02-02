@@ -118,13 +118,129 @@ $Ftotal = $Dcharge + $total;
             <option value="cards">Debit/Credit Card</option>
           </select>
         </div>
+        <div id="card-element" style="margin-bottom: 20px; padding: 20px; text-indent: 20px; background-color: rgb(214, 213, 213); height: 60px; border-radius: 10px;"></div>
+
+
+        <div id="card-errors" role="alert"></div>
+
         <div style="text-align: center;" class="form-group">
           <input type="submit" name="submit" value="Place Order" class="btn btn-success btn-block " style="font-size: 15px; padding: 10px 30%;">
+
+
       </form>
     </div>
   </div>
 </div>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var stripe = Stripe(
+      "pk_test_51Of4HBLOvbIi11myDG0YDg3q0Dk4nOWWyOtdYtWPEAJRHoxVXDH5LuAdIlc4ykxTerieiEsgla12psKdBmchMYu700YfwSYXbV"
+    );
+    var elements = stripe.elements();
+    var cardElement = elements.create("card");
 
+    cardElement.mount("#card-element");
+
+    var form = document.getElementById("placeOrder");
+
+    form.addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      // Fetch the client secret from your server using AJAX
+      fetch('http://localhost/eCommerce/src/controller/paymentIntent.php', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+          },
+          body: new URLSearchParams(new FormData(form)).toString(),
+        })
+        .then(response => response.json())
+        .then(data => {
+          // Use the fetched client secret in confirmCardPayment
+          stripe.confirmCardPayment(data.clientSecret, {
+            payment_method: {
+              card: cardElement,
+            },
+          }).then(function(result) {
+            if (result.error) {
+              Toastify({
+                text: result.error.message,
+                duration: 3000,
+                close: false,
+                gravity: "middle",
+                position: "right",
+                stopOnFocus: false,
+                style: {
+                  background: "lightred",
+                  color: "white",
+                },
+              }).showToast();
+            } else {
+              // Continue with your existing code
+              var formData = new FormData(form);
+              var ajax = new XMLHttpRequest();
+              ajax.open("POST", "http://localhost/eCommerce/src/controller/order.ctrl.php", true);
+
+              ajax.onload = function() {
+                if (ajax.status === 200) {
+                  var response = JSON.parse(ajax.responseText);
+                  console.log(response);
+                  if (response.status === true) {
+                    form.reset();
+                    Toastify({
+                      text: response.message,
+                      duration: 3000,
+                      close: false,
+                      gravity: "middle",
+                      position: "right",
+                      stopOnFocus: false,
+                      style: {
+                        background: "lightgreen",
+                        fontFamily: "verdana",
+                        color: "black",
+                        textAlign: "center",
+                        width: "15%",
+                        fontSize: "15px",
+                        boxShadow: "0px 0px 2px 2px lightgreen",
+                        padding: "15px",
+                        borderRadius: "20px",
+                      },
+                      callback: function() {
+                        window.location.href =
+                          "http://localhost/eCommerce/view/admin/cart.php";
+                      },
+                    }).showToast();
+                  } else {
+                    Toastify({
+                      text: response.message,
+                      duration: 3000,
+                      close: false,
+                      gravity: "middle",
+                      position: "right",
+                      stopOnFocus: false,
+                      style: {
+                        background: "rgb(231, 110, 110)",
+                        fontFamily: "verdana",
+                        color: "black",
+                        textAlign: "center",
+                        width: "15%",
+                        fontSize: "15px",
+                        boxShadow: "0px 0px 2px 2px rgb(231, 110, 110)",
+                        padding: "15px",
+                        borderRadius: "20px",
+                      },
+                    }).showToast();
+                  }
+                }
+              };
+
+              ajax.send(formData);
+            }
+          });
+        });
+    });
+  });
+</script>
 <?php
 include "../includes/footer.php";
 ?>

@@ -11,12 +11,20 @@ class ComposerStaticInit7cd54be77561126c06055444495b0adb
         array (
             'src\\config\\' => 11,
         ),
+        'S' => 
+        array (
+            'Stripe\\' => 7,
+        ),
     );
 
     public static $prefixDirsPsr4 = array (
         'src\\config\\' => 
         array (
             0 => __DIR__ . '/../..' . '/src/config',
+        ),
+        'Stripe\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/stripe/stripe-php/lib',
         ),
     );
 

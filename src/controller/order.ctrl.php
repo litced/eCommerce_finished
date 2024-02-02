@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 require_once "../../vendor/autoload.php";
 require_once "../dao/Dao.php";
 
@@ -16,10 +16,14 @@ if($_POST){
   $method = htmlspecialchars($method);
 
   
-  // var_dump("productID: " . $productId, "productPrice: " . $productPrice, "productQuantity: " . $productQuantity, "Total: " . $total, "Method: " . $method);
 
 
   $newdao->Order($productId, $productQuantity, $productPrice, $total, $method);
+
+  if (!empty($_SESSION['addTocart'])) {
+    unset($_SESSION['addTocart']);
+  }
+
 
   $answer =[
     "status"=> true,

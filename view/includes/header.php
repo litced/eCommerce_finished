@@ -19,7 +19,8 @@ else
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <title>ShopEx</title>
 
-
+  <!-- ------------------------STRIPE LINK------------------------ -->
+  <script src="https://js.stripe.com/v3/"></script>
 
   <!-- --------------CSS LINK'S FILE------------------------ -->
   <link rel="stylesheet" href="http://localhost/eCommerce/public/css/includes.css">
@@ -73,6 +74,10 @@ else
 
     .profile-menu:hover .submenu {
       display: block;
+    }
+
+    .CardField-number CardField-child {
+      background-color: red;
     }
   </style>
 </head>
@@ -141,7 +146,7 @@ else
             ?>
 
                 <div class="item">
-             
+
                   <div class="image">
                     <img src="../../products/<?= $fetch['pictures']; ?>" alt="">
                   </div>
@@ -157,7 +162,7 @@ else
                     <i class="fa-solid fa-xmark removeSidebar" id="<?= $fetch['idp'] ?>"></i>
 
                   </div>
-             
+
                 </div>
 
             <?php
@@ -197,7 +202,7 @@ else
       });
     });
 
-     // -------------------ADD TO CART sProduct----------------------
+    // -------------------ADD TO CART sProduct----------------------
     function HeaderRefresh() {
       window.history.go(0);
     }
@@ -205,7 +210,7 @@ else
       $(".sproductAddtocart").on("click", function(e) {
 
         var ID = $(this).attr("id")
-        
+
 
 
         $.ajax({
