@@ -207,7 +207,7 @@ $Ftotal = $Dcharge + $total;
                       },
                       callback: function() {
                         window.location.href =
-                          "http://localhost/eCommerce/view/admin/cart.php";
+                          "http://localhost/eCommerce/view/admin/shop.php";
                       },
                     }).showToast();
                   } else {
