@@ -1,0 +1,185 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <title>Document</title>
+
+    <style>
+        #window {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(204, 204, 204, 0.342);
+  z-index: 1;
+}
+
+#modal {
+  display: block;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 90px;
+  height: 300px;
+  background-image: url("images/171695.jpeg");
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  z-index: 2;
+  font-family: 'Noto Sans',sans-serif;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.ModalTitle {
+  text-align: center;
+}
+
+.UpdateForm {
+  margin-bottom: 15px;
+}
+
+.UpdateCon {
+  width: 100%;
+  outline: none;
+  padding: 18px;
+  border: none;
+  background: none;
+  border-bottom: 1px solid black;
+  box-sizing: border-box;
+}
+.UpdateCon:focus:not(:placeholder-shown),
+.UpdateCon:valid:not(:placeholder-shown){
+    border-color: #66afe9; 
+
+}
+
+
+.select {
+    border: none;
+    font-weight: bold;
+    background: none;
+    outline: none;
+    width: 70%;
+     padding: 8px;
+    box-sizing: border-box;
+}
+
+.select option{
+    font-family: 'Robotos',sans-serif;
+    background-color: rgba(0, 150, 150, 0.998);
+    width: 100%;
+    font-size: 14px;
+    letter-spacing: 5px;
+}
+
+#buttons {
+    text-align: center;
+    position: absolute;
+    bottom: 6;
+    width: 60%;
+    
+  }
+  
+  .ModalButtonSave {
+    font-family: 'Noto Sans',sans-serif;
+    padding: 6px;
+    width: 60%;
+    cursor: pointer;
+    background-color: rgb(185, 185, 185);
+    border: none;
+  }
+
+  .ModalButtonSave:hover{
+    background-color: rgba(0, 180, 180, 0.499);
+  }
+  
+#button3 {
+    text-align: center;
+    position: absolute;
+    bottom: 6;
+    width: 30%;
+    right: 10px;
+}
+
+.ModalButtonCancel{
+    font-family: 'Noto Sans',sans-serif;
+    padding: 6px;
+    width: 100%;
+    cursor: pointer;
+    background-color: rgb(185, 185, 185);
+    border: none;
+
+}
+.ModalButtonCancel:hover{
+
+    background-color: rgba(0, 180, 180, 0.499);
+
+}
+
+
+    </style>
+</head>
+<body>
+    <button onclick="OpenModal()">openmodal</button>
+    
+
+<div id="window" onclick="CloseModal()"></div>
+<div id="modal">
+    <span class="close" onclick="CloseModal()">&times;</span>
+
+
+
+    <form method="post" action="" id="UpdateModal">
+        <div id="body-modal"></div>
+        <div class="ModalTitle">
+            <h2>Add Products</h2>
+        </div>
+        <div class="UpdateForm">
+            <input type="text" class="UpdateCon" name="productname" id="firstname" placeholder="Name of the product" value="">
+        </div>
+        <div class="UpdateForm">
+            <input type="text" class="UpdateCon" name="productquan" id="lastname" placeholder="The amount available">
+        </div>
+        <div class="UpdateForm">
+            <input type="text" class="UpdateCon" name="productprice" id="username" placeholder="The Product Price">
+        </div>
+        <label for="productimg">Add</label>
+        <input type="file" id="productimg" value="Img of the product">
+
+        <div id="buttons">
+            <input type="submit" class="ModalButtonSave" value="save">
+        </div>
+
+    </form>
+  
+</div>
+
+<script>
+    function OpenModal() {
+        $("#window").fadeIn(300);
+        $("#modal").fadeIn(300)
+    }
+
+    function CloseModal() {
+        $("#window").fadeOut(300)
+        $("#modal").fadeOut(300, function () {
+            $(this).hide();
+        })
+
+    }
+</script>
+
+
+</body>
+</html>

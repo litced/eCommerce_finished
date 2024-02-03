@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jan 31, 2024 at 07:48 PM
+-- Generation Time: Feb 02, 2024 at 07:06 PM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -45,13 +45,21 @@ CREATE TABLE `cart` (
 
 CREATE TABLE `orders` (
   `order_id` int NOT NULL,
-  `item_id` int DEFAULT NULL,
+  `productId` varchar(211) DEFAULT NULL,
   `order_date` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `amount` decimal(15,2) DEFAULT NULL,
-  `item_price` int NOT NULL,
-  `Total` decimal(10,2) DEFAULT NULL,
-  `Method` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL
+  `productQuantity` varchar(211) DEFAULT NULL,
+  `productPrice` varchar(211) NOT NULL,
+  `total` varchar(211) DEFAULT NULL,
+  `method` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `userid` int UNSIGNED DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`order_id`, `productId`, `order_date`, `productQuantity`, `productPrice`, `total`, `method`, `userid`) VALUES
+(36, '43', '2024-02-02 18:57:11', '1', '12.00', '65', 'Moncash', 1);
 
 -- --------------------------------------------------------
 
@@ -133,7 +141,8 @@ ALTER TABLE `cart`
 --
 ALTER TABLE `orders`
   ADD PRIMARY KEY (`order_id`),
-  ADD KEY `user_id` (`item_id`);
+  ADD KEY `user_id` (`productId`),
+  ADD KEY `fk_orders_users` (`userid`);
 
 --
 -- Indexes for table `products`
@@ -167,7 +176,7 @@ ALTER TABLE `cart`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `order_id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `order_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT for table `products`

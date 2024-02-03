@@ -53,8 +53,8 @@ $Session = $_SESSION["admin"];
     <?php foreach ($stmn as $fetch) : ?>
       <div class="col-md-3">
         <div class="procontainer0">
-          <div class="pro0" <div class="pro" onclick="window.location.href='sproduct.php?id=<?= $fetch["idp"]; ?>';">
-            <img class="img-fluid w-100" src="../../products/<?= $fetch["pictures"] ?>">
+          <div class="pro0" onclick="window.location.href='sproduct.php?id=<?= $fetch["idp"]; ?>';">
+            <img class="img-fluid w-100" src="../../products/<?= $fetch["pictures"] ?>" alt="<?= $fetch["pname"] ?>">
             <div class="des">
               <span><?= $fetch["pname"] ?></span>
               <h5><?= $fetch["descriptions"] ?></h5>
@@ -73,6 +73,7 @@ $Session = $_SESSION["admin"];
       </div>
     <?php endforeach; ?>
   </div>
+
 
 </section>
 
