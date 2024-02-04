@@ -1,9 +1,11 @@
 <?php
-session_start();
-if (empty($_SESSION["admin"])) {
-  header("location: http://localhost/eCommerce/view/admin/auth.php");
-  exit();
-}
+
+// session_start();
+
+// if (empty($_SESSION["admin"])) {
+//   header("location: http://localhost/eCommerce/view/admin/auth.php");
+//   exit();
+// }
 include "../includes/header.php";
 include_once "../../vendor/autoload.php";
 include "../../src/config/instance.php";
@@ -96,11 +98,11 @@ $connector = $connection->conn();
     <table>
       <tr>
         <td>Cart SubTotal</td>
-        <td><?= $subtotal; ?>$</td>
+        <td><?=isset($subtotal)?"$subtotal$":"0$"?></td>
       </tr>
       <tr>
         <td>Tax</td>
-        <td><?= $taxe; ?>$</td>
+        <td><?=isset($taxe)?"$taxe$":"0$"?></td>
       </tr>
       <tr>
         <td>Shipping</td>
@@ -108,7 +110,7 @@ $connector = $connection->conn();
       </tr>
       <tr>
         <td><strong>Total</strong></td>
-        <td><strong>$<?= $total; ?></strong></td>
+        <td><strong><?=isset($total)?"$total$":"0$"?></strong></td>
       </tr>
     </table>
     <a href="../admin/checkout.php">

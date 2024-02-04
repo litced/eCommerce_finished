@@ -1,8 +1,8 @@
 <?php
-session_start();
-if (empty($_SESSION["admin"])) {
-  header("location: http://localhost/eCommerce/view/admin/auth.php");
-}
+// session_start();
+// if (empty($_SESSION["admin"])) {
+//   header("location: http://localhost/eCommerce/view/admin/auth.php");
+// }
 require_once "../../vendor/autoload.php";
 include "../includes/header.php";
 include_once "../../src/config/instance.php";
@@ -22,12 +22,12 @@ $stmn->execute();
 
 <section id="product0">
 
-  <div class="row">
+<div class="row">
     <?php foreach ($stmn as $fetch) : ?>
       <div class="col-md-3">
         <div class="procontainer0">
-        <div class="pro0" <div class="pro" onclick="window.location.href='sproduct.php?id=<?= $fetch["idp"]; ?>';">
-            <img class="img-fluid w-100" src="../../products/<?= $fetch["pictures"] ?>">
+          <div class="pro0">
+            <img class="img-fluid w-100"  onclick="window.location.href='sproduct.php?id=<?= $fetch["idp"]; ?>';" src="../../products/<?= $fetch["pictures"] ?>" alt="<?= $fetch["pname"] ?>">
             <div class="des">
               <span><?= $fetch["pname"] ?></span>
               <h5><?= $fetch["descriptions"] ?></h5>
@@ -40,7 +40,14 @@ $stmn->execute();
               </div>
               <h4>$<?= $fetch["price"] ?></h4>
             </div>
-            <a class="addtoitem" id="<?= $fetch["idp"]; ?>"><i class="fa-solid fa-bag-shopping shoppings"></i></a>
+            <?php if(isset($_SESSION["admin"])): ?>
+              <a class="addtoitem" id="<?= $fetch["idp"]; ?>"><i class="fa-solid fa-bag-shopping shoppings"></i></a>
+            <?php else: ?>
+              <a href="#" onclick="alert('You are not logged in. Please register or log in.');"><i class="fa-solid fa-bag-shopping shoppings"></i></a>
+            <?php endif; ?>
+
+                
+            
           </div>
         </div>
       </div>

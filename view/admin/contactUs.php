@@ -1,8 +1,8 @@
 <?php
-session_start();
-if (empty($_SESSION["admin"])) {
-    header("location: http://localhost/eCommerce/view/admin/auth.php");
-}
+// session_start();
+// if (empty($_SESSION["admin"])) {
+//     header("location: http://localhost/eCommerce/view/admin/auth.php");
+// }
 include "../includes/header.php";
 ?>
 

@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             callback: function () {
               window.location.href =
-                "http://localhost/eCommerce/view/admin/index.php";
+                "http://localhost/eCommerce/index.php";
             },
           }).showToast();
         } else {

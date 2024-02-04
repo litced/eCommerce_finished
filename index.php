@@ -1,11 +1,9 @@
 <?php
-session_start();
-if (!isset($_SESSION["admin"])) {
-  header("location: http://localhost/eCommerce/view/admin/auth.php");
-}
-include_once "../../vendor/autoload.php";
-include "../../src/config/instance.php";
-include "../includes/header.php";
+// session_start();
+
+include_once "vendor/autoload.php";
+include "src/config/instance.php";
+include "view/includes/header.php";
 
 use src\config\instance;
 
@@ -13,8 +11,7 @@ $connector = $connection->conn();
 $stmn = $connector->prepare("SELECT * FROM products");
 $stmn->execute();
 
-
-$Session = $_SESSION["admin"];
+$Session = isset($_SESSION["admin"]) ? $_SESSION["admin"] : null;
 ?>
 
 <section id="welcomepage">
@@ -27,19 +24,19 @@ $Session = $_SESSION["admin"];
 
 <section id="features" class="section1">
   <div class="febox">
-    <img src="../../public/image/f1.png">
+    <img src="public/image/f1.png">
     <h6>Free Shipping</h6>
   </div>
   <div class="febox">
-    <img src="../../public/image/f2.png">
+    <img src="public/image/f2.png">
     <h6>Fast Shipping</h6>
   </div>
   <div class="febox">
-    <img src="../../public/image/f3.png">
+    <img src="public/image/f3.png">
     <h6>Donations</h6>
   </div>
   <div class="febox">
-    <img src="../../public/image/f4.png">
+    <img src="public/image/f4.png">
     <h6>Deliveries</h6>
   </div>
 
@@ -53,8 +50,8 @@ $Session = $_SESSION["admin"];
     <?php foreach ($stmn as $fetch) : ?>
       <div class="col-md-3">
         <div class="procontainer0">
-          <div class="pro0" onclick="window.location.href='sproduct.php?id=<?= $fetch["idp"]; ?>';">
-            <img class="img-fluid w-100" src="../../products/<?= $fetch["pictures"] ?>" alt="<?= $fetch["pname"] ?>">
+          <div class="pro0">
+            <img class="img-fluid w-100" onclick="window.location.href='view/admin/sproduct.php?id=<?= $fetch["idp"]; ?>';" src="products/<?= $fetch["pictures"] ?>" alt="<?= $fetch["pname"] ?>">
             <div class="des">
               <span><?= $fetch["pname"] ?></span>
               <h5><?= $fetch["descriptions"] ?></h5>
@@ -67,7 +64,14 @@ $Session = $_SESSION["admin"];
               </div>
               <h4>$<?= $fetch["price"] ?></h4>
             </div>
-            <a class="addtoitem" id="<?= $fetch["idp"]; ?>"><i class="fa-solid fa-bag-shopping shoppings"></i></a>
+            <?php if(isset($_SESSION["admin"])): ?>
+              <a class="addtoitem" id="<?= $fetch["idp"]; ?>"><i class="fa-solid fa-bag-shopping shoppings"></i></a>
+            <?php else: ?>
+              <a href="#" onclick="alert('You are not logged in. Please register or log in.');"><i class="fa-solid fa-bag-shopping shoppings"></i></a>
+            <?php endif; ?>
+
+                
+            
           </div>
         </div>
       </div>
@@ -90,7 +94,7 @@ $Session = $_SESSION["admin"];
   <div class="procontainer">
 
     <div class="pro">
-      <img class="img-fluid w-100" src="../../public/image/n1.jpg">
+      <img class="img-fluid w-100" src="public/image/n1.jpg">
       <div class="des">
         <span>lightblue Long-sleeve Shirt
         </span>
@@ -107,7 +111,7 @@ $Session = $_SESSION["admin"];
       <a href=""><i class="fa-solid fa-cart-shopping shopping"></i></a>
     </div>
     <div class="pro">
-      <img class="img-fluid w-100" src="../../public/image/n8.jpg">
+      <img class="img-fluid w-100" src="public/image/n8.jpg">
       <div class="des">
         <span>black Short-Sleeve
         </span>
@@ -124,7 +128,7 @@ $Session = $_SESSION["admin"];
       <a href=""><i class="fa-solid fa-cart-shopping shopping"></i></a>
     </div>
     <div class="pro">
-      <img class="img-fluid w-100" src="../../public/image/n7.jpg">
+      <img class="img-fluid w-100" src="public/image/n7.jpg">
       <div class="des">
         <span>khaki Long-Sleeve Shirt
         </span>
@@ -138,7 +142,7 @@ $Session = $_SESSION["admin"];
       <a href=""><i class="fa-solid fa-cart-shopping shopping"></i></a>
     </div>
     <div class="pro">
-      <img class="img-fluid w-100" src="../../public/image/f6.jpg">
+      <img class="img-fluid w-100" src="public/image/f6.jpg">
       <div class="des">
         <span>Blue&Orange Long-Sleeve Shirt
         </span>
@@ -210,5 +214,5 @@ $Session = $_SESSION["admin"];
 </section>
 
 <?php
-include "../includes/footer.php";
+include "view/includes/footer.php";
 ?>

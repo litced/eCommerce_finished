@@ -38,11 +38,11 @@
         <h4>Install App</h4>
         <p>From App store and Google Play</p>
         <div class="row">
-            <img src="../../public/image/play.jpg">
-            <img src="../../public/image/app.jpg">
+            <img src="http://localhost/eCommerce/public/image/play.jpg">
+            <img src="http://localhost/eCommerce/public/image/app.jpg">
         </div>
         <p>Secured payment</p>
-        <img src="../../public/image/pay.png">
+        <img src="http://localhost/eCommerce/public/image/pay.png">
     </div>
     <div class="copyright">
         <p>@ 2024, LtCed Drew - Ecommerce Project </p>

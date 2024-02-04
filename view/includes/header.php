@@ -1,14 +1,16 @@
 <?php
+session_start();
 
-$Session = $_SESSION["admin"];
-$RoleSession = $Session["roles"];
-$sessionId = $Session["id"];
+$Session = isset($_SESSION["admin"]) ? $_SESSION["admin"] : null;
+$RoleSession = isset($Session["roles"]) ? $Session["roles"] : null;
+$sessionId = isset($Session["id"]) ? $Session["id"] : null;
 
 $count = '';
-if (!empty($_SESSION['addTocart']))
+if (!empty($_SESSION['addTocart'])) {
   $count = count($_SESSION['addTocart']);
-else
+} else {
   $count = 0;
+}
 ?>
 <html lang="en">
 
@@ -89,13 +91,13 @@ else
       <button id="menubutton"><i class="fa-solid fa-bars menubar"></i></button>
 
       <ul id="navbar">
-        <li><a id="home" href="http://localhost/eCommerce/view/admin/">Home</a></li>
-        <li><a id="shop" href="shop.php">Shop</a></li>
-        <li><a href="blog.php">Blog</a></li>
-        <li><a href="aboutUs.php">About</a></li>
-        <li><a href="contactUs.php">Contact</a></li>
+        <li><a id="home" href="http://localhost/eCommerce">Home</a></li>
+        <li><a  href="http://localhost/eCommerce/view/admin/shop.php">Shop</a></li>
+        <li><a href="http://localhost/eCommerce/view/admin/blog.php">Blog</a></li>
+        <li><a href="http://localhost/eCommerce/view/admin/aboutUs.php">About</a></li>
+        <li><a href="http://localhost/eCommerce/view/admin/contactUs.php">Contact</a></li>
 
-        <li class="classcart"><a class="acart" href="cart.php"><i class="fa-solid fa-bag-shopping"></i></a></li>
+        <li class="classcart"><a class="acart" href="http://localhost/eCommerce/view/admin/cart.php"><i class="fa-solid fa-bag-shopping"></i></a></li>
         <p id="number"><?= $count ?></p>
 
 
@@ -104,13 +106,13 @@ else
           <ul class="submenu">
 
             <?php if (empty($_SESSION["admin"])) : ?>
-              <li><a href="auth.php">Register</a></li>
-              <li><a href="auth.php">Login</a></li>
+              <li><a href="http://localhost/eCommerce/view/admin/auth.php">Register</a></li>
+              <li><a href="http://localhost/eCommerce/view/admin/auth.php">Login</a></li>
             <?php endif; ?>
             <?php if (isset($_SESSION["admin"])) : ?>
               <li><a href=""><?= $Session["username"] ?></a></li>
-              <li><a href="auth.php">Settings</a></li>
-              <li><a href="../../src/controller/logout.ctrl.php" name="logout">Logout</a></li>
+              <li><a href="#">Settings</a></li>
+              <li><a href="http://localhost/eCommerce/src/controller/logout.ctrl.php" name="logout">Logout</a></li>
             <?php endif; ?>
             <?php if ($RoleSession === "admin") :  ?>
               <li><a href="http://localhost/eCommerce/backend/adminBoards.php">Dashboard</a></li>
@@ -147,7 +149,7 @@ else
                 <div class="item">
 
                   <div class="image">
-                    <img src="../../products/<?= $fetch['pictures']; ?>" alt="">
+                    <img src="http://localhost/eCommerce/products/<?= $fetch['pictures']; ?>" alt="">
                   </div>
                   <div class="Name">
                     <?= $fetch['description']; ?>
@@ -170,7 +172,7 @@ else
               $_SESSION['total'] = $total;
             endif;
             ?>
-            <h3>Total : <?= $total; ?>$</h3>
+            <h3> <?= isset($total) ? "Total :$total $" : "Your cart is empty"; ?></h3>
           </div>
         </div>
 
