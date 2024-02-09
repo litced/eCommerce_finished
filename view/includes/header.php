@@ -35,7 +35,7 @@ if (!empty($_SESSION['addTocart'])) {
   <script src="http://localhost/eCommerce/public/js/addworker.js"></script>
   <script src="http://localhost/eCommerce/public/js/productdelete.js"></script>
   <script src="http://localhost/eCommerce/public/js/workerdelete.js"></script>
-  <script src="http://localhost/eCommerce/public/js/addcart.js"></script>
+  <script src="http://localhost/eCommerce/public/js/moncashPay.js"></script>
   <script src="http://localhost/eCommerce/public/js/UpdateUser.js"></script>
   <script src="http://localhost/eCommerce/public/js/placeorder.js"></script>
 
@@ -85,11 +85,14 @@ if (!empty($_SESSION['addTocart'])) {
 
 <body>
   <section id="header">
-    <h2 class="title" style="cursor: pointer;" onclick="window.location.href='http://localhost/eCommerce/view/admin/'">shopEx</h2>
+    <h2 class="title" style="cursor: pointer;" onclick="window.location.href='http://localhost/eCommerce/'">shopEx</h2>
     <div>
 
       <button id="menubutton"><i class="fa-solid fa-bars menubar"></i></button>
+      <?php
 
+
+      ?>
       <ul id="navbar">
         <li><a id="home" href="http://localhost/eCommerce">Home</a></li>
         <li><a  href="http://localhost/eCommerce/view/admin/shop.php">Shop</a></li>
@@ -144,6 +147,25 @@ if (!empty($_SESSION['addTocart'])) {
                 $_SESSION['id'][] = $fetch['idp'];
                 $_SESSION['quantity'][] = $fetch['quantity'];
                 $_SESSION['prices'][] = $fetch['price'];
+
+
+                
+                $exchangeRate = 132.25;
+
+                $priceInUSD = $fetch['price'];
+
+                $priceInHTG = $priceInUSD * $exchangeRate;
+
+           
+                
+
+
+
+
+
+
+
+
             ?>
 
                 <div class="item">
@@ -173,6 +195,7 @@ if (!empty($_SESSION['addTocart'])) {
             endif;
             ?>
             <h3> <?= isset($total) ? "Total :$total $" : "Your cart is empty"; ?></h3>
+        
           </div>
         </div>
 

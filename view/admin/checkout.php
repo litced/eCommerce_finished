@@ -1,11 +1,11 @@
 <?php
-session_start();
 
-if (empty($_SESSION["admin"])) {
-  header("location: http://localhost/eCommerce/view/admin/auth.php");
-  exit();
-}
-$Session = $_SESSION["admin"];
+
+// if (empty($_SESSION["admin"])) {
+//   header("location: http://localhost/eCommerce/view/admin/auth.php");
+//   exit();
+// }
+// $Session = $_SESSION["admin"];
 // var_dump($Session);
 
 include "../includes/header.php";
@@ -93,7 +93,7 @@ $Ftotal = $Dcharge + $total;
           </tr>
           <tr>
             <td>Product Price:</td>
-            <td><?= $fetch['price'] ?></td>
+            <td><?= $fetch['price'] ?>$(<?= $priceInHTG?>GDES)<td>
           </tr>
           <tr>
             <td>Delivery Charge:</td>
@@ -117,22 +117,30 @@ $Ftotal = $Dcharge + $total;
         <div style="margin-bottom: 10px;" class="form-group">
           <select name="method" class="form-control">
             <option value="" selected disabled>-Select Payment Mode-</option>
-            <option value="cod">Cash On Delivery</option>
-            <option value="netbanking">Net Banking</option>
+            <!-- <option value="cod">Cash On Delivery</option> -->
+            <!-- <option value="netbanking">Net Banking</option> -->
             <option value="Moncash">MonCash</option>
             <option value="cards">Debit/Credit Card</option>
           </select>
         </div>
         <div id="card-element" style="margin-bottom: 20px; padding: 20px; text-indent: 20px; background-color: rgb(214, 213, 213); height: 60px; border-radius: 10px;"></div>
 
-
         <div id="card-errors" role="alert"></div>
-
+       
         <div style="text-align: center;" class="form-group">
           <input type="submit" name="submit" value="Place Order" class="btn btn-success btn-block " style="font-size: 15px; padding: 10px 30%;">
-
-
       </form>
+
+      <form id="moncashForm" method="POST" action="http://localhost/eCommerce/src/controller/moncashPay/exec.php">
+        <input type="number" name="userid" hidden value="<?= htmlspecialchars($Session["id"]) ?>">
+        <input type="number" name="productQuantity" hidden value="<?= htmlspecialchars($fetch['quantity']) ?>">
+      <input type="text" name="productname" hidden value="<?= htmlspecialchars($allDescriptions) ?>">
+    <input type="hidden" name="productPrice" value="<?= htmlspecialchars($priceInHTG) ?>">
+    <input type="hidden" name="total" value="<?= htmlspecialchars($total) ?>">
+    <input type="hidden" name="productId" value="<?= htmlspecialchars($fetch["idp"]) ?>">
+    <input type="image" src="https://sandbox.moncashbutton.digicelgroup.com/Moncash-middleware/resources/assets/images/MC_button_kr.png" style="width:200px; margin-top: 10px;">
+</form>
+
     </div>
   </div>
 </div>
