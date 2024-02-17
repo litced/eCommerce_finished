@@ -1,8 +1,5 @@
 <?php
-session_start();
-if (empty($_SESSION["admin"])) {
-  header("location: http://localhost/eCommerce/view/admin/auth.php");
-}
+
 include "../view/includes/header.php";
 require_once "../vendor/autoload.php";
 include_once "../src/config/instance.php";
