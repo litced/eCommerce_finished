@@ -19,13 +19,14 @@ class Dao{
     }
 // --------------------REGISTER------------------------
 
-    public function authRegister($firstname,$lastname,$username,$password){
+    public function authRegister($firstname,$lastname,$username,$password,$roles){
 
-        $stmn = $this->connection->conn()->prepare("INSERT INTO users(firstname,lastname,username,passwords)VALUES(:firstname,:lastname,:username,:passwords) ");
+        $stmn = $this->connection->conn()->prepare("INSERT INTO users(firstname,lastname,username,passwords,roles)VALUES(:firstname,:lastname,:username,:passwords,:roles) ");
         $stmn->bindparam(":firstname",$firstname);
         $stmn->bindparam(":lastname",$lastname);
         $stmn->bindparam(":username",$username);
         $stmn->bindparam(":passwords",$password);
+        $stmn->bindparam(":roles",$roles);
         $stmn->execute();
     }
 
@@ -187,8 +188,14 @@ class Dao{
         ":userid"=> $userid
       ]);
     }
-  
+//   ------------------------ CATEGORY---------------------------
 
+    public function addCategory($Categoryname){
+      $stmn = $this->connection->conn()->prepare("INSERT INTO category(category_name)VALUES(:category_name)");
+      $stmn->execute([
+         ":category_name" => $Categoryname
+      ]);
+    }
   
 }
 

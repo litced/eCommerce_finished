@@ -68,3 +68,10 @@ CREATE TABLE cart (
     FOREIGN KEY (user_id) REFERENCES users(id)  
 );
 
+-- CATEGORY TABLE
+
+CREATE TABLE category (
+   id_category INT AUTO_INCREMENT PRIMARY KEY,
+   category_name
+   CREATED_AT TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+);

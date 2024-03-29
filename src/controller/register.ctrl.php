@@ -12,7 +12,10 @@ if($_POST){
     $username= htmlspecialchars($Username);
     $conpassword= htmlspecialchars($Conpassword);
     $password= htmlspecialchars($Password);
+   $roles = htmlspecialchars($roles);
 
+   $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+   
     if($conpassword != $password){
 
         $answer = ['status'=> false , 'message'=>'password not matched'];
@@ -20,7 +23,7 @@ if($_POST){
         exit();
     }
 
-    $ndao->authRegister($Firstname,$Lastname,$Username,$Password);
+    $ndao->authRegister($Firstname,$Lastname,$Username, $hashedPassword,$roles);
 
     $answer = ['status'=> true , 'message'=>'Register completed'];
 }else{

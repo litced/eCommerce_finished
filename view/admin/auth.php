@@ -31,9 +31,9 @@
                 <input type="text" name="Username" id="username " placeholder="Username">
                 <input type="password" name="Conpassword" id="conpassword " placeholder="Confirm Password">
                 <input type="password" name="Password" id="password " placeholder="Password">
-                <label for="role" id="role1" style="display: none;">Role:</label>
+                <label for="role" id="role" style="display: none;">Role:</label>
                 <select name="roles" class="select" id="role" style="display: none;">
-                    <option value="User" class="selection">User</option>
+                    <option value="customer" class="selection">customer</option>
                 </select>
 
             </div>
